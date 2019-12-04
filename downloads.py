@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import time
 import schedule
 import importlib.util
 
@@ -48,3 +49,7 @@ def check_for_downloads():
         move_files(download, filetype)
 
 schedule.every().hour.do(check_for_downloads)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
